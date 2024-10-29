@@ -32,7 +32,6 @@ jobs:
         echo '[env:custom_build]' >>platformio.ini
         echo 'extends = env:esp32_4MB_XL' >>platformio.ini
         echo 'build_flags = ${env:esp32_4MB_XL.build_flags} -D WLED_AP_SSID_UNIQUE -D WLED_ENABLE_SIMPLE_UI -D WLED_ENABLE_PIXART -D WLED_MAX_BUTTONS=6 -D WLED_MAX_USERMODS=10 -D USERMOD_DALLASTEMPERATURE -D USERMOD_AUTO_SAVE -D USERMOD_PWM_FAN -D USERMOD_DALLASTEMPERATURE' >>platformio.ini
-        echo 'lib_deps = ${env:esp32_4MB_XL.lib_deps} OneWire@~2.3.7' >>platformio.ini
         echo 'build_unflags= -D WLED_RELEASE_NAME' >>platformio.ini
         pio run -e custom_build || pio run -e custom_build
     - name: Copy Files
